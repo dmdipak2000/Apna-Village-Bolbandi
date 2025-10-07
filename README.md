@@ -1,4 +1,4 @@
 # Apna-Village-Bolbandi
-This is my first Repository.
+It is a portfolio website project about my village.
 <br>
 Dipak Majhi
