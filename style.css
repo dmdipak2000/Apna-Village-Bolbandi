@@ -146,8 +146,9 @@ a,p {
     cursor: pointer;
     display: none;
 }
+            /* Checkbox For Menu Btn*/
 #check {
-    display: none;      /* Checkbox For Menu Btn*/
+    display: none;
 }
 @media(max-width: 1200px) {
     .menu-btn {
@@ -165,12 +166,14 @@ a,p {
     .nav-item {
         position: absolute;
         right: 0;
-        height: 0;
         padding: 2rem;
-        top: 100%;
         margin-right: 3rem;
-        background: rgba(0, 0, 0, 0.6);
-        backdrop-filter: blur(50px);
+        top: 100%;
+        overflow: hidden;
+        pointer-events: none;
+        opacity: 0;
+        background: rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(10px);
         display: flex;
         flex-direction: column;
         border-radius: 1rem 1rem 1rem 1rem;
@@ -178,15 +181,17 @@ a,p {
         -moz-border-radius: 1rem 1rem 1rem 1rem;
         -ms-border-radius: 1rem 1rem 1rem 1rem;
         -o-border-radius: 1rem 1rem 1rem 1rem;
-        transition: .3s ease;
-        -webkit-transition: .3s ease;
-        -moz-transition: .3s ease;
-        -ms-transition: .3s ease;
-        -o-transition: .3s ease;
+        transition: 0.5s ease-in;
+        -webkit-transition: 0.5s ease-in;
+        -moz-transition: 0.5s ease-in;
+        -ms-transition: 0.5s ease-in;
+        -o-transition: 0.5s ease-in;
 }
-    #check:checked~.nav-item {
-        height: 20rem;
-    }
+    #check:checked ~.nav-item {
+        height: auto;
+        opacity: 1;
+        pointer-events: painted;
+     }
             /* Navbar Menu Button End */
 }
             /**** Navbar End ****/
