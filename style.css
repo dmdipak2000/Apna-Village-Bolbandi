@@ -46,7 +46,8 @@ a,p {
            /**** Navbar Start ****/
 .nav-section {
     width: 100%;
-    height: 6rem;
+    /* height: 6rem; */
+    height: auto;
     background: rgba(0, 0, 0, 0.2);
     backdrop-filter: blur(50px);
     display: flex;
@@ -94,8 +95,10 @@ a,p {
 .logo {
     height: 4.25rem;
     aspect-ratio: 1;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
     margin-right: 1.4rem;
-    border: 2px solid black;
+    /* border: 2px solid black; */
     border-radius: 50%;
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
@@ -106,7 +109,40 @@ a,p {
     align-items: center;
     background-size: cover;
     vertical-align: middle;
+    position: relative;
 }
+            /* Logo border Effect Start*/
+.logo::after {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: conic-gradient(from var(--angle), orange, white, green);
+    z-index: -1;
+    --angle:0deg;
+    padding: 0.1rem;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    animation: spin 5s linear infinite;
+    -webkit-animation: spin 5s linear infinite;
+}
+@property --angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+@keyframes spin {
+    from {
+        --angle: 0deg;
+    }
+    to {
+        --angle: 360deg;
+    }
+}
+            /* Logo border Effect End */
 
 .logo-img {
     width: 100%;
@@ -186,7 +222,7 @@ a,p {
         -moz-transition: 0.5s ease-in;
         -ms-transition: 0.5s ease-in;
         -o-transition: 0.5s ease-in;
-}
+    }
     #check:checked ~.nav-item {
         height: auto;
         opacity: 1;
@@ -212,7 +248,7 @@ a,p {
     padding-top: 6rem;
     padding-bottom: 1.5rem;
     display: flex;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
     justify-content: space-between;
     align-items: center;
 }
@@ -228,8 +264,8 @@ a,p {
     color: var(--hero-heading-color);
 }
 
-.img-section {
-    width: 24rem;
+.hero-img-section {
+    width: 30rem;
     height: 28rem;
     border-radius: 0.5rem;
     -webkit-border-radius: 0.5rem;
@@ -356,7 +392,7 @@ a,p {
     overflow-y: auto;
     scrollbar-width: none;
     scroll-behavior: smooth;
-    cursor: pointer;
+    cursor: grab;
 }
             /*** Temple Section End ***/
 .map-container {
@@ -407,6 +443,18 @@ a,p {
             /*** Media Quries Start***/
 
             /* Wiewport Start */
+/* @media(min-width: 376px) {
+    .container {
+        max-width:360px
+    }
+} */
+
+/* @media(min-width: 520px) {
+    .container {
+        max-width:445px
+    }
+} */
+
 @media(min-width: 576px) {
     .container {
         max-width:540px
@@ -435,8 +483,11 @@ a,p {
             /* Wiewport End */
 @media(max-width: 1400px) {
     .card {
-        width: 23.55%;
-        height: 28rem;
+        width: 23.54%;
+        height: 26.5rem;
+    }
+    .card-img--section {
+        height: 13rem;
     }
     .card-para {
         height: 7rem;
@@ -445,31 +496,146 @@ a,p {
 
 @media(max-width: 1200px) {
     .card {
-        width: 31.6%;
+        width: 31.5%;
+        height: 30rem;
+    }
+    .card-img--section {
+        height: 16rem;
+    }
+    .card-para {
+        height: 7rem;
     }
 }
 
 @media(max-width: 992px) {
     .hero-container {
         justify-content: center;
+        flex-wrap: wrap;
     }
-    .img-section {
+    .hero-img-section {
         margin-top: 2rem;
+        width: 15rem;
+        height: 20rem;
     }
     .card {
-        width:47.676%;
+        width: 47.67%;
     }
 }
 
 @media(max-width: 768px) {
+    .logo {
+        height: 3.5rem;
+    }
+    .nav-heading {
+        font-size: 2.2rem;
+    }
+    .menu-btn {
+        font-size: 1.5rem;
+    }
     .card {
-        width: 100%;
+        width: 46.852%;
+        height: 25rem;
+    }
+    .card-img--section {
+        height: 13rem;
+    }
+    .footer-container {
+        flex-wrap: wrap;
     }
 }
 
 @media(max-width: 576px) {
-        .card {
-        width: 100%;
+    .logo {
+        height: 3rem;
+    }
+    .nav-heading {
+        font-size: 2rem;
+    }
+    .menu-btn {
+        font-size: 1rem;
+    }
+    .hero-para {
+        font-size: smaller;
+    }
+    .hero-heading {
+        font-size: smaller;
+    }
+    .hero-img-section {
+        width: 15rem;
+        height: 20rem;
+    }
+    .card {
+        width: 46.7%;
+    }
+    .footer-container {
+        flex-wrap: wrap;
     }
 }
+
+@media(max-width: 520px) {
+    .logo {
+        height: 2.5rem;
+    }
+    .nav-heading {
+        font-size: 1.5rem;
+    }
+    .nav-item {
+        margin-right: 1rem;
+    }
+    .hero-container {
+        padding-top: 4rem;
+    }
+    .hero-para {
+        font-size: 1.2rem;
+    }
+    .hero-heading {
+        font-size: 1.9rem;
+        width: auto;
+    }
+    .hero-img-section {
+        width: 15rem;
+        height: 20rem;
+    }
+    /* .card-section {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+     } */
+    .card {
+        width: 100%;
+        height: 28rem;
+    }
+    .card-img--section {
+        height: 15rem;
+    }
+}
+
+@media(max-width: 376px) {
+    .logo {
+        height: 2.5rem;
+        margin-right: 0.5rem;
+    }
+    .nav-heading {
+        font-size: 1.4rem;
+    }
+    .menu-btn {
+        font-size: 0.9rem;
+    }
+    .nav-item {
+        font-size: smaller;
+        padding: 1rem;
+    }
+    .hero-img-section {
+        width: 15rem;
+        height: 20rem;
+    }
+    .heading-section {
+        font-size: 1.25rem;
+    }
+         /* .card-section {
+        padding-left: 0rem;
+        padding-right: 0rem;
+     } */
+
+}
+
             /*** Media Quries End ***/
