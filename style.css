@@ -112,22 +112,26 @@ a,p {
     position: relative;
 }
             /* Logo border Effect Start*/
-.logo::after {
+.logo::after, .logo::before {
     content: '';
     position: absolute;
     height: 100%;
     width: 100%;
-    background: conic-gradient(from var(--angle), orange, white, green);
+    background: conic-gradient(from var(--angle), orange,white,white,green,orange,white,white,green,orange);
     z-index: -1;
     --angle:0deg;
-    padding: 0.1rem;
+    padding: 0.11rem;
     border-radius: 50%;
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
     -ms-border-radius: 50%;
     -o-border-radius: 50%;
-    animation: spin 5s linear infinite;
-    -webkit-animation: spin 5s linear infinite;
+    animation: spin 10s linear infinite;
+    -webkit-animation: spin 10s linear infinite;
+}
+.logo::before {
+    filter: blur(1rem);
+    -webkit-filter: blur(1rem);
 }
 @property --angle {
     syntax: "<angle>";
@@ -394,6 +398,26 @@ a,p {
     scroll-behavior: smooth;
     cursor: grab;
 }
+
+.card-btn-section {
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn {
+    width: 8rem;
+    height: 2rem;
+    font-size: large;
+    background-color: rgb(183, 0, 255);
+    border-radius: 1rem;
+    -webkit-border-radius: 1rem;
+    -moz-border-radius: 1rem;
+    -ms-border-radius: 1rem;
+    -o-border-radius: 1rem;
+}
             /*** Temple Section End ***/
 .map-container {
     width: 100%;
@@ -410,6 +434,20 @@ a,p {
     -ms-border-radius: 0.7rem;
     -o-border-radius: 0.7rem;
 }
+            /* Contact Section Start */
+.contact-body-section {
+    width: 100%;
+    border-bottom: ridge blueviolet 0.4rem;
+    margin-bottom: 3rem;
+}
+.contact-body-section .contact-heading {
+    font-size: 1.5rem;
+    margin-top: 8rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+            /* Contact Section Start */
+            
             /*** Footer Section Start ***/
 .footer-container {
     width: 100%;
@@ -433,28 +471,51 @@ a,p {
     flex-direction: column;    
 }
 
-.about-item p, .about-item a, .contact-item p {
+.about-item p, .about-item a, .contact-item p, .contact-item p a {
     margin-bottom: 0.4rem;
     color: rgb(185, 191, 138);
     text-decoration: none;
 }
             /*** Footer Section End ***/
+            /* Back to Top Button Start */
+.back-to-top {
+    right: 2rem;
+    bottom: 2rem;
+    width: 2.5rem;
+    aspect-ratio: 1;
+    background-color: rgb(255, 217, 0);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: 0.2rem solid violet;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    animation: appear;
+    -webkit-animation: appear;
+    animation-timeline: scroll(y);
+}
+@keyframes appear{
+    0%{
+        opacity: 1;
+    }
+    100% {
+        opacity: 1;
+        position: fixed;
+    }
+}
+.back-to-top:hover {
+    background-color: violet;
+    border-color:  rgb(255, 217, 0);
+}
+            /* Back to Top Button End */
+
 
             /*** Media Quries Start***/
 
             /* Wiewport Start */
-/* @media(min-width: 376px) {
-    .container {
-        max-width:360px
-    }
-} */
-
-/* @media(min-width: 520px) {
-    .container {
-        max-width:445px
-    }
-} */
-
 @media(min-width: 576px) {
     .container {
         max-width:540px
@@ -493,7 +554,6 @@ a,p {
         height: 7rem;
     }
 }
-
 @media(max-width: 1200px) {
     .card {
         width: 31.5%;
@@ -506,7 +566,6 @@ a,p {
         height: 7rem;
     }
 }
-
 @media(max-width: 992px) {
     .hero-container {
         justify-content: center;
@@ -521,7 +580,6 @@ a,p {
         width: 47.67%;
     }
 }
-
 @media(max-width: 768px) {
     .logo {
         height: 3.5rem;
@@ -543,7 +601,6 @@ a,p {
         flex-wrap: wrap;
     }
 }
-
 @media(max-width: 576px) {
     .logo {
         height: 3rem;
@@ -554,12 +611,12 @@ a,p {
     .menu-btn {
         font-size: 1rem;
     }
-    .hero-para {
-        font-size: smaller;
+    /* .hero-para {
+        font-size: 1.2rem;
     }
     .hero-heading {
-        font-size: smaller;
-    }
+        font-size: 1.9rem;
+    } */
     .hero-img-section {
         width: 15rem;
         height: 20rem;
@@ -571,7 +628,6 @@ a,p {
         flex-wrap: wrap;
     }
 }
-
 @media(max-width: 520px) {
     .logo {
         height: 2.5rem;
@@ -596,10 +652,6 @@ a,p {
         width: 15rem;
         height: 20rem;
     }
-    /* .card-section {
-        padding-left: 1.5rem;
-        padding-right: 1.5rem;
-     } */
     .card {
         width: 100%;
         height: 28rem;
@@ -608,7 +660,6 @@ a,p {
         height: 15rem;
     }
 }
-
 @media(max-width: 376px) {
     .logo {
         height: 2.5rem;
@@ -631,11 +682,6 @@ a,p {
     .heading-section {
         font-size: 1.25rem;
     }
-         /* .card-section {
-        padding-left: 0rem;
-        padding-right: 0rem;
-     } */
-
 }
 
             /*** Media Quries End ***/
