@@ -46,7 +46,6 @@ a,p {
            /**** Navbar Start ****/
 .nav-section {
     width: 100%;
-    /* height: 6rem; */
     height: auto;
     background: rgba(0, 0, 0, 0.2);
     backdrop-filter: blur(50px);
@@ -98,7 +97,6 @@ a,p {
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
     margin-right: 1.4rem;
-    /* border: 2px solid black; */
     border-radius: 50%;
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
@@ -331,7 +329,8 @@ a,p {
 
 .card {
     width: 19.12rem;
-    height: 30rem;
+    /* height: 30rem; */
+    height: auto;
     margin: 0.5rem;
     border-radius: 0.7rem;
     -webkit-border-radius: 0.7rem;
@@ -402,6 +401,7 @@ a,p {
 .card-btn-section {
     width: 100%;
     height: auto;
+    margin-bottom: 0.5rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -411,6 +411,7 @@ a,p {
     width: 8rem;
     height: 2rem;
     font-size: large;
+    cursor: pointer;
     background-color: rgb(183, 0, 255);
     border-radius: 1rem;
     -webkit-border-radius: 1rem;
@@ -419,6 +420,59 @@ a,p {
     -o-border-radius: 1rem;
 }
             /*** Temple Section End ***/
+
+            /* See More Pop-up Start */
+.pop-up-container,
+.pop-up-container2,
+.pop-up-container3,
+.pop-up-container4 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    z-index: 2;
+    background: rgba(233, 239, 171, 0.5);
+    backdrop-filter: blur(15px);
+    overflow-x: hidden;
+    overflow-y: auto;
+    scrollbar-width: none;
+    border-bottom: 2px solid rgb(229, 255, 0);
+}
+.pop-up-container.active,
+.pop-up-container2.active,
+.pop-up-container3.active,
+.pop-up-container4.active  {
+    animation: popupAnimation 1500ms ease-in-out forwards;
+    -webkit-animation: popupAnimation 1500ms ease-in-out forwards;
+    overscroll-behavior-block: none;
+}
+@keyframes popupAnimation {
+    0% {
+        width: 0%;
+        height: 0%;
+    }
+    50% {
+        width: 100%;
+        height: 2px;
+    }
+    100% {
+        width: 100%;
+        height: 100%;
+    }
+}
+.model-cls-btn {
+    cursor: pointer;
+}
+.model-cls-btn:hover {
+    background-color: red;
+}
+.content img {
+    width: 3rem;
+}
+            /* See More Section End */
+
+            /* Map Section Start */
 .map-container {
     width: 100%;
     margin-bottom: 3rem;
@@ -434,6 +488,8 @@ a,p {
     -ms-border-radius: 0.7rem;
     -o-border-radius: 0.7rem;
 }
+            /* Map Section End */
+
             /* Contact Section Start */
 .contact-body-section {
     width: 100%;
@@ -592,7 +648,7 @@ a,p {
     }
     .card {
         width: 46.852%;
-        height: 25rem;
+        /* height: 25rem; */
     }
     .card-img--section {
         height: 13rem;
@@ -654,7 +710,7 @@ a,p {
     }
     .card {
         width: 100%;
-        height: 28rem;
+        /* height: 28rem; */
     }
     .card-img--section {
         height: 15rem;
@@ -683,5 +739,4 @@ a,p {
         font-size: 1.25rem;
     }
 }
-
             /*** Media Quries End ***/
