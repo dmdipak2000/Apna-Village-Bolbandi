@@ -701,6 +701,76 @@ a,p {
 }
             /* Back to Top Button End */
 
+            /* Date Cutdown Start */
+.countdown {
+    right: 1rem;
+    display:flex;
+    justify-content: center;
+    /* padding:20px; */
+    flex-wrap:wrap;
+    position: absolute;
+}
+
+.box {
+    width:70px;
+    height:85px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    color:#fff;
+    margin:8px;
+    border-radius:12px;
+    -webkit-border-radius:12px;
+    -moz-border-radius:12px;
+    -ms-border-radius:12px;
+    -o-border-radius:12px;
+}
+
+.number {
+    font-size: 1rem;
+    font-weight:bold;
+}
+
+.label {
+    font-size:1rem;
+}
+
+.days {
+    background:linear-gradient(135deg,#00c6ff,#0072ff);
+    transform:rotate(-3deg);
+}
+
+.hours {
+    background:linear-gradient(135deg,#ff512f,#dd2476);
+    border-radius:50%;
+    width:80px;
+    height:80px;
+}
+
+.minutes {
+    background:linear-gradient(135deg,#11998e,#38ef7d);
+    clip-path:polygon(50% 0%,100% 25%,100% 75%,50% 100%,0% 75%,0% 25%);
+}
+
+.seconds {
+    background:linear-gradient(135deg,#f7971e,#ffd200);
+    border:4px dashed #fff;
+}
+
+.target-date,.finished {
+    padding: 0.5rem;
+    text-align:center;
+    font-size: 1rem;
+    color: white;
+    position: absolute;
+}
+
+/* .target-date {
+    position: absolute;
+    opacity: 0;
+} */
+            /* Date Cutdown End */
 
             /*** Media Quries Start***/
 
@@ -912,71 +982,3 @@ a,p {
     }
 }
             /*** Media Quries End ***/
-
-.countdown{
-    right: 1rem;
-    display:flex;
-    justify-content: center;
-    /* padding:20px; */
-    flex-wrap:wrap;
-    position: absolute;
-}
-
-.box{
-    width:70px;
-    height:85px;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    color:#fff;
-    margin:8px;
-    border-radius:12px;
-    -webkit-border-radius:12px;
-    -moz-border-radius:12px;
-    -ms-border-radius:12px;
-    -o-border-radius:12px;
-}
-
-.number{
-    font-size: 1rem;
-    font-weight:bold;
-}
-
-.label{
-    font-size:1rem;
-}
-
-.days{
-    background:linear-gradient(135deg,#00c6ff,#0072ff);
-    transform:rotate(-3deg);
-}
-
-.hours{
-    background:linear-gradient(135deg,#ff512f,#dd2476);
-    border-radius:50%;
-    width:80px;
-    height:80px;
-}
-
-.minutes{
-    background:linear-gradient(135deg,#11998e,#38ef7d);
-    clip-path:polygon(50% 0%,100% 25%,100% 75%,50% 100%,0% 75%,0% 25%);
-}
-
-.seconds{
-    background:linear-gradient(135deg,#f7971e,#ffd200);
-    border:4px dashed #fff;
-}
-
-.target-date,.finished{
-    padding: 0.5rem;
-    text-align:center;
-    font-size: 1rem;
-    color: white;
-    position: absolute;
-}
-/* .target-date {
-    position: absolute;
-    opacity: 0;
-} */

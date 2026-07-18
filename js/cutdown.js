@@ -1,4 +1,4 @@
-const cards = document.querySelectorAll(".card1");
+const cards = document.querySelectorAll(".date");
 
 cards.forEach(card => {
 
