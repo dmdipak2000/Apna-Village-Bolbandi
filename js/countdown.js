@@ -38,12 +38,19 @@ cards.forEach(card => {
 
         const targetDate = new Date(dates[currentIndex]);
 
-        card.querySelector(".target-date").textContent =
+        // card.querySelector(".target-date").textContent =
+        //     targetDate.toLocaleDateString("en-GB",{
+        //         day:"2-digit",
+        //         month:"short",
+        //         year:"numeric"
+        //     });
+
+        card.querySelector(".target-date").innerHTML =
             targetDate.toLocaleDateString("en-GB",{
                 day:"2-digit",
                 month:"short",
                 year:"numeric"
-            });
+            }) + "<span> Upcoming...</span>";
 
         return true;
     }

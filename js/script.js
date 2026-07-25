@@ -102,7 +102,7 @@ downloadBtn.addEventListener("click",()=> {
   document.body.removeChild(link);
 });
 
-//Support touch swipe on mobile
+//Support touch swipe model image on mobile
 let startX = 0;
 
 overlay.addEventListener("touchstart", e => {
@@ -117,4 +117,23 @@ overlay.addEventListener("touchend", e => {
 });
 
 //Model image open end
+
+
+// Card search start
+// const searchBox = document.getElementById("searchBox");
+// const cards = document.querySelectorAll(".card");
+
+// searchBox.addEventListener("input", function () {
+//     const keyword = this.value.toLowerCase().trim();
+
+//     cards.forEach(card => {
+//         const title = card.querySelector(".card-title").textContent.toLowerCase();
+
+//         if (title.includes(keyword)) {
+//             card.style.display = "";
+//         } else {
+//             card.style.display = "none";
+//         }
+//     });
+// });
 
