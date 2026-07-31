@@ -4,38 +4,35 @@
     box-sizing: border-box;
     font-family: Arial;
 }
-
 html {
     scroll-behavior: smooth;
-    scrollbar-width: thin;
+    scrollbar-width: none;
 }
-
 h1,h2,h3,h4,h5,h6 {
     font-family: "Urbanist", sans-serif;
 }
-
 h3 {
     line-height: 3rem;
     font-size: 1.6rem;
 }
-
 a,p {
     font-family: "Epunda Slab", serif;
     letter-spacing: 0.12rem;
 }
-
+/* p {
+    font-size: clamp(1rem, 1.2vw, 1.125rem);
+} */
 :root {
     --nav-heading-color:white;
     --hero-heading-color:orange;
     --sub-heading-color: rgb(0, 255, 242);
     --para-color:rgb(255, 0, 132);
     --bg-color: #f4f4f4;
-    --card-border-color: rgb(255, 187, 0);
+    --card-border-color: rgb(43, 226, 220);
     --section-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
     --card-shadow:rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
     --footer-bgcolor:rgb(23, 54, 54);
 }
-
 .container {
     width: 100%;
     padding-right: 1rem;
@@ -43,7 +40,6 @@ a,p {
     margin-right: auto;
     margin-left: auto;
 }
-
            /**** Navbar Start ****/
 .nav-section {
     width: 100%;
@@ -74,7 +70,6 @@ a,p {
     -ms-transition: calc(.5s);
     -o-transition: calc(.5s);
 }
-
 .nav-section:hover:after {
     left: 100%;
 }
@@ -85,15 +80,15 @@ a,p {
     align-items: center;
     justify-content: space-between;
 }
-
 .heading-container {
     display: flex;
     align-items: center;
     justify-content: flex-start;
 }
-
 .logo {
-    height: 4.25rem;
+    width: clamp(2.5rem, 6vw, 4.5rem);
+    /* height: auto; */
+    /* height: 4.25rem; */
     aspect-ratio: 1;
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
@@ -146,28 +141,27 @@ a,p {
     }
 }
             /* Logo border Effect End */
-
 .logo-img {
-    width: 100%;
+    width: clamp(2.5rem, 6vw, 4.5rem);
     height: auto;
     border-radius: 50%;
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
     -ms-border-radius: 50%;
     -o-border-radius: 50%;
+    display: block;
 }
-
-.nav-heading {
-    font-size: 3rem;
+.nav-heading h1 {
+    font-size: clamp(1.85rem, 4vw, 4rem);
+    line-height: 1.2;
+    font-weight: 700;
     color: var(--nav-heading-color);
 }
-
 .nav-item {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
 }
-
 .nav-item a {
     text-decoration: none;
     margin: 0.5rem;
@@ -181,11 +175,11 @@ a,p {
 .nav-item a:active {
     color: black;
     border-bottom: 2px solid black;
-
 }
             /* Navbar Menu Button Start*/
 .menu-btn {
-    font-size: 1.8rem;
+    font-size: clamp(1rem, 2vw, 1.5rem);
+    /* font-size: 1.5rem; */
     color: white;
     cursor: pointer;
     display: none;
@@ -209,9 +203,8 @@ a,p {
     }
     .nav-item {
         position: absolute;
-        right: 0;
+        right: 3rem;
         padding: 2rem;
-        margin-right: 3rem;
         top: 100%;
         overflow: hidden;
         pointer-events: none;
@@ -230,6 +223,7 @@ a,p {
         -moz-transition: 0.5s ease-in;
         -ms-transition: 0.5s ease-in;
         -o-transition: 0.5s ease-in;
+        overscroll-behavior-block: none;
     }
     #check:checked ~.nav-item {
         height: auto;
@@ -251,7 +245,6 @@ a,p {
     background-repeat: no-repeat;
     background-position: center;
 }
-
 .hero-container {
     padding-top: 6rem;
     padding-bottom: 1.5rem;
@@ -260,18 +253,19 @@ a,p {
     justify-content: space-between;
     align-items: center;
 }
-
+.text-section {
+    margin-top: 4rem;
+}
 .hero-para {
-    font-size: 2rem;
+    /* font-size: 2rem; */
+    font-size: clamp(1.125rem, 1rem + 0.6vw, 1.5rem);
     color: var(--para-color);
 }
-
 .hero-heading {
     width: 25rem;
-    font-size: 3rem;
+    font-size: clamp(2.5rem, 6vw, 5rem);
     color: var(--hero-heading-color);
 }
-
 .hero-img-section {
     width: 30rem;
     height: 28rem;
@@ -287,7 +281,6 @@ a,p {
     -moz-animation: gallrey 30s linear infinite;
     -o-animation: gallery 30s linear infinite;
 }
-
 @keyframes gallery {
     0% {
         background-image: url(Images/hero-img1.jpg);
@@ -310,11 +303,9 @@ a,p {
     color: var(--heading-color);
     line-height: 3.5rem;
 }
-
 .section-para {
     font-size: 1.2rem;
 }
-
 .card-section {
     width: 100%;
     height: auto;
@@ -332,7 +323,6 @@ a,p {
     -o-border-radius: 0.7rem;
     overflow: hidden;
 }
-
 .card {
     width: 19.12rem;
     height: auto;
@@ -351,11 +341,9 @@ a,p {
     background-color: white;
     position: relative;
 }
-
 .card:hover {
     box-shadow: var(--card-shadow);
 }
-
 .card-img--section {
     width: 100%;
     height: 15rem;
@@ -368,7 +356,6 @@ a,p {
     -ms-border-radius: 0.6rem 0.6rem 0 0;
     -o-border-radius: 0.6rem 0.6rem 0 0;
 }
-
 .card-img {
     width: 100%;
     min-height: 15rem;
@@ -381,7 +368,6 @@ a,p {
     -ms-transition: 0.5s;
     -o-transition: 0.5s;
 }
-
 .card .card-img--section img:hover {
     transform: scale(1.3);
     -webkit-transform: scale(1.3);
@@ -389,12 +375,10 @@ a,p {
     -ms-transform: scale(1.3);
     -o-transform: scale(1.3);
 }
-
 .card-text--section {
     padding: 0.5rem 2rem;
     text-align: center;
 }
-
 .card-para {
     width: 100%;
     height: 8rem;
@@ -403,7 +387,6 @@ a,p {
     scroll-behavior: smooth;
     cursor: grab;
 }
-
 .card-btn-section {
     width: 100%;
     height: auto;
@@ -412,7 +395,6 @@ a,p {
     align-items: center;
     justify-content: center;
 }
-
 .btn {
     width: 8rem;
     height: 2rem;
@@ -532,7 +514,6 @@ a,p {
     align-items: center;
     user-select: none;
 }
-
 .overlay-img {
     max-width: 85%;
     max-height: 85%;
@@ -541,12 +522,10 @@ a,p {
     animation: fadeIn 0.2s ease-out;
     -webkit-animation: fadeIn 0.2s ease-out;
 }
-
 @keyframes fadeIn {
     from { opacity: 0; transform: scale(0.95); }
     to { opacity: 1; transform: scale(1); }
 }
-
 .close-btn, .nav-btn, .download-btn {
     position: absolute;
     color: #fff;
@@ -559,24 +538,22 @@ a,p {
     border-radius: 4px;
     transition: background 0.2s;
 }
-.close-btn:hover, .nav-btn:hover {
+.close-btn:hover, .nav-btn:hover, .download-btn:hover {
     background: rgba(255, 255, 255, 0.25);
 }
 .close-btn:hover {
     color: red;
 }
 .close-btn {
-    top: 0.5rem;
     right: 0.5rem;
-    font-size: 30px;
-    line-height: 1;
 }
 .download-btn {
-    top: 0.5rem;
     right: 5rem;
+}
+.close-btn, .download-btn {
+    top: 0.5rem;
     font-size: 30px;
     line-height: 1;
-
 }
 .prev-btn {
     left: 20px;
@@ -591,7 +568,9 @@ a,p {
 .download-btn:active {
     color: chartreuse;
 }
-
+.close-btn:active {
+    color: #fff;
+}
             /* Pop-Up Model's Image Open End */
 
             /* Map Section Start */
@@ -648,12 +627,10 @@ a,p {
     height: auto;
     display: flex;
 }
-
 .about-section, .contact-section {
     display: flex;
     flex-direction: column;    
 }
-
 .about-item p, .about-item a, .contact-item p, .contact-item p a {
     margin-bottom: 0.4rem;
     color: rgb(185, 191, 138);
@@ -697,29 +674,25 @@ a,p {
 .back-to-top:active {
     background-color: rgb(255, 217, 0);
     border-color: violet;
-
 }
             /* Back to Top Button End */
 
-            /* Date Cutdown Start */
+            /* Date Cuntdown Start */
 .date {
     border-radius:15px;
     box-shadow:0 10px 20px rgba(0,0,0,.55);
     overflow:hidden;
 }
-
 .header {
     /* background:linear-gradient(45deg,#ff416c,#ff4b2b); */
     color: orangered;
     padding:15px;
     text-align:center;
 }
-
 .target-date {
     margin-top:5px;
     font-size:15px;
 }
-
 .countdown {
     display:flex;
     justify-content:space-around;
@@ -731,7 +704,6 @@ a,p {
     margin-bottom: 15px;
     color: orangered;
 }
-
 .box {
     width:60px;
     height:75px;
@@ -743,57 +715,100 @@ a,p {
     color:#fff;
     margin:8px;
 }
-
 .number {
     font-size:25px;
     font-weight:bold;
 }
-
 .label {
     font-size:12px;
 }
-
 .days {
     background:linear-gradient(135deg,#00c6ff,#0072ff);
     transform:rotate(-3deg);
 }
-
 .hours {
     background:linear-gradient(135deg,#ff512f,#dd2476);
     border-radius:50%;
     width:80px;
     height:80px;
 }
-
 .minutes {
     background:linear-gradient(135deg,#11998e,#38ef7d);
     clip-path:polygon(50% 0%,100% 25%,100% 75%,50% 100%,0% 75%,0% 25%);
 }
-
 .seconds {
     background:linear-gradient(135deg,#f7971e,#ffd200);
     border:4px dashed #fff;
 }
-
 .finished {
     padding:30px;
     text-align:center;
     font-size:24px;
     color:red;
 }
-            /* Date Cutdown End */
+            /* Date Countdown End */
+.popup {
+    position: fixed;
+    left: 85%;
+    top: 15%;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    background: #f15553;
+    color: #fff;
+    padding: 12px 18px;
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+    display: none;
+    align-items: center;
+    gap: 20px;
+    z-index: 3;
+    box-shadow: 0 5px 15px rgba(0,0,0,.5);
+    animation: fadeIn2 .3s;
+    -webkit-animation: fadeIn2 .3s;
+}
+.popup button {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 30px;
+    cursor: pointer;
+}
+@keyframes fadeIn2 {
+    from {
+        opacity: 0;
+        transform: translate(-50%,20px);
+        -webkit-transform: translate(-50%,20px);
+        -moz-transform: translate(-50%,20px);
+        -ms-transform: translate(-50%,20px);
+        -o-transform: translate(-50%,20px);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%,0);
+        -webkit-transform: translate(-50%,0);
+        -moz-transform: translate(-50%,0);
+        -ms-transform: translate(-50%,0);
+        -o-transform: translate(-50%,0);
+    }
+}
 
             /*** Media Quries Start***/
 
             /* Wiewport Start */
 @media(min-width: 576px) {
     .container {
-        max-width:540px
+        max-width:560px
     }
 }
 @media(min-width: 768px) {
     .container {
-        max-width:720px
+        max-width:720px;
     }
 }
 @media(min-width: 992px) {
@@ -812,19 +827,16 @@ a,p {
     }
 }
             /* Wiewport End */
-@media(max-width: 1400px) {
+/* @media(max-width: 1400px) {
     .card {
-        width: 23.54%;
-        height: 26.5rem;
+        width: 23.7587%;
+        height: auto;
     }
-    .card-img--section {
-        height: 13rem;
+} */
+/* @media(max-width: 1200px) {
+    .search-box {
+        margin-right: 0rem;
     }
-    .card-para {
-        height: 7rem;
-    }
-}
-@media(max-width: 1200px) {
     .card {
         width: 31.5%;
         height: 30rem;
@@ -835,8 +847,12 @@ a,p {
     .card-para {
         height: 7rem;
     }
-}
-@media(max-width: 992px) {
+    .popup {
+        left: 80%;
+        top: 2%;
+    }
+} */
+/* @media(max-width: 992px) {
     .hero-container {
         justify-content: center;
         flex-wrap: wrap;
@@ -852,8 +868,8 @@ a,p {
     .footer {
         flex-wrap: wrap;
     }
-}
-@media(max-width: 768px) {
+} */
+/* @media(max-width: 768px) {
     .logo {
         height: 3.5rem;
     }
@@ -873,8 +889,8 @@ a,p {
     .card-para {
         height: 5rem;
     }
-}
-@media(max-width: 576px) {
+} */
+/* @media(max-width: 576px) {
     .logo {
         height: 3rem;
     }
@@ -898,8 +914,8 @@ a,p {
         opacity: 0;
         pointer-events: none;
     }
-}
-@media(max-width: 520px) {
+} */
+/* @media(max-width: 520px) {
     .logo {
         height: 2.5rem;
     }
@@ -946,8 +962,8 @@ a,p {
         -ms-transition: 0.5s;
         -o-transition: 0.5s;
     }
-}
-@media(max-width: 400px) {
+} */
+/* @media(max-width: 400px) {
     .container {
         max-width:380px
     }
@@ -959,8 +975,8 @@ a,p {
         margin-left: 0.5rem;
         margin-right: 0.5rem;
     }
-}
-@media(max-width: 376px) {
+} */
+/* @media(max-width: 376px) {
     .logo {
         height: 2.5rem;
         margin-right: 0.5rem;
@@ -985,25 +1001,11 @@ a,p {
     .card:hover{
         box-shadow: var(--card-shadow);
     }
-}
-@media(max-width: 320px) {
+} */
+/* @media(max-width: 320px) {
     .logo {
         height: 2rem;
         margin-right: 0.5rem;
     }
-}
+} */
             /*** Media Quries End ***/
-
-.search-container {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 20px;
-}
-#seachBox {
-    flex: 1;
-    padding: 10px;
-}
-#searchBtn {
-    padding: 10px 20px;
-    cursor: pointer;
-}

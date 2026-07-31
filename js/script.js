@@ -118,22 +118,139 @@ overlay.addEventListener("touchend", e => {
 
 //Model image open end
 
+// Card Search Start
+const searchBox = document.getElementById("searchBox");
+const sections = document.querySelectorAll(".card-section");
+// const noCardMessage = document.getElementById("noCardMessage");
 
-// Card search start
-// const searchBox = document.getElementById("searchBox");
-// const cards = document.querySelectorAll(".card");
+//Pop-up Elements
+const popup = document.getElementById("noCardPopup");
+const closePopup = document.getElementById("closePopup");
 
-// searchBox.addEventListener("input", function () {
-//     const keyword = this.value.toLowerCase().trim();
+let popupTimer;
 
-//     cards.forEach(card => {
-//         const title = card.querySelector(".card-title").textContent.toLowerCase();
+function showPopup() {
+    popup.style.display = "flex";
+    clearTimeout(popupTimer);
+    popupTimer = setTimeout(() => {
+        popup.style.display = "none";
+    }, 5000);
+}
 
-//         if (title.includes(keyword)) {
-//             card.style.display = "";
-//         } else {
-//             card.style.display = "none";
-//         }
-//     });
-// });
+closePopup.addEventListener("click", () => {
+    popup.style.display = "none";
+});
 
+searchBox.addEventListener("input", function () {
+
+    const keyword = this.value.trim().toLowerCase();
+
+    // Reset everything if search box is empty
+    if (keyword === "") {
+        sections.forEach(section => {
+            section.querySelectorAll(".card").forEach(card => {
+                card.style.display = "";
+            });
+        });
+
+        // noCardMessage.style.display = "none";
+        popup.style.display = "none";
+        return;
+    }
+
+    let found = false;
+    let firstMatch = null;
+
+    // Restore all cards first
+    sections.forEach(section => {
+        section.querySelectorAll(".card").forEach(card => {
+            card.style.display = "";
+        });
+    });
+
+    // Find the matching section
+    sections.forEach(section => {
+
+        let sectionMatched = false;
+
+        section.querySelectorAll(".card").forEach(card => {
+
+            const title = card.querySelector(".card-title").textContent.toLowerCase();
+
+            if (title.includes(keyword)) {
+                sectionMatched = true;
+                found = true;
+
+                if (!firstMatch) {
+                    firstMatch = card;
+                }
+            }
+
+        });
+
+        // Only filter the matched section
+        if (sectionMatched) {
+
+            section.querySelectorAll(".card").forEach(card => {
+
+                const title = card.querySelector(".card-title").textContent.toLowerCase();
+
+                card.style.display = title.includes(keyword) ? "" : "none";
+
+            });
+
+        }
+
+    });
+    // Add a variable to remember the last searched keyword
+    let lastKeyword = "";
+
+    if (firstMatch && keyword !== lastKeyword) {
+        lastKeyword = keyword;
+        
+        firstMatch.scrollIntoView({
+            behavior: "smooth",
+            block: "center"
+        });
+    }
+
+    // if (firstMatch) {
+    //     firstMatch.scrollIntoView({
+    //         behavior: "smooth",
+    //         block: "center"
+    //     });
+    // }
+
+    // noCardMessage.style.display = found ? "none" : "block";
+
+    if (!found) {
+        showPopup();
+    } else {
+        popup.style.display = "none";
+    }
+});
+// Press enter to search
+searchBox.addEventListener("keypress",function (e) {
+    if (e.key === "Enter") {
+        e.preventDefault();
+        //Trigger the existing search
+        searchBox.dispatchEvent(new Event("input"));
+        //Remove keyboard focus (optional)
+        this.blur();
+    }
+});
+
+// Clear Search When Popup Model Close Button is Clicked
+document.querySelectorAll(".close-btn").forEach(button => {
+    button.addEventListener("click", () => {
+        searchBox.value ="";
+        sections.forEach(section => {
+            section.querySelectorAll(".card").forEach(card => {
+                card.style.display = "";
+            });
+        });
+        // noCardMessage.style.display = "none";
+        popup.style.display = "none";
+    });
+});
+// Card Search End
